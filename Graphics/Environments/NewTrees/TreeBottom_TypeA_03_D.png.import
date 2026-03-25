@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6vit7p3jt61u"
-path="res://.godot/imported/Wood_00.png-9b5c143b4afef9c80df7a855bcafe776.ctex"
+uid="uid://cjq2mlfimrvv4"
+path="res://.godot/imported/TreeBottom_TypeA_03_D.png-cae44719ebc394dd8334a7f02ac07f49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Graphics/Items/OldWood/Wood_00.png"
-dest_files=["res://.godot/imported/Wood_00.png-9b5c143b4afef9c80df7a855bcafe776.ctex"]
+source_file="res://Graphics/Environments/NewTrees/TreeBottom_TypeA_03_D.png"
+dest_files=["res://.godot/imported/TreeBottom_TypeA_03_D.png-cae44719ebc394dd8334a7f02ac07f49.ctex"]
 
 [params]
 
