@@ -1,12 +1,55 @@
 [gd_scene format=3 uid="uid://c3goo8b2jqbh4"]
 
+[ext_resource type="Texture2D" uid="uid://c8y0fghsawy7u" path="res://Graphics/Environments/NewTrees/TreeBottom_TypeA_00_D.png" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://b4sn35n16rs1a" path="res://Graphics/Environments/NewTrees/TreeBottom_TypeA_00_N.png" id="2_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bfxlfixl7rnu3" path="res://Graphics/Environments/NewTrees/TreeTop_TypeA_00_D.png" id="3_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bs6ax5hsw1gi8" path="res://Graphics/Environments/NewTrees/TreeTop_TypeA_00_N.png" id="4_d21ai"]
+
 [sub_resource type="TileSet" id="TileSet_y32ns"]
 tile_shape = 1
 tile_layout = 4
 tile_size = Vector2i(64, 32)
+
+[sub_resource type="Gradient" id="Gradient_rj586"]
+offsets = PackedFloat32Array(0.12650603, 0.6987952)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4d7sh"]
+gradient = SubResource("Gradient_rj586")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ir8iy"]
+diffuse_texture = ExtResource("1_0hol4")
+normal_texture = ExtResource("2_q6r6c")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_hqns4"]
+diffuse_texture = ExtResource("3_kdubu")
+normal_texture = ExtResource("4_d21ai")
 
 [node name="Node2D" type="Node2D" unique_id=372622923]
 y_sort_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1066531606]
 tile_set = SubResource("TileSet_y32ns")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1611783963]
+color = Color(0.47788018, 0.47788012, 0.47788012, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1245889632]
+position = Vector2(620, 482)
+color = Color(1, 0.49019608, 0, 1)
+energy = 2.0
+texture = SubResource("GradientTexture2D_4d7sh")
+texture_scale = 16.0
+height = 30.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1120963073]
+self_modulate = Color(0.74364257, 0.38321075, 1.92523e-06, 1)
+position = Vector2(697, 390)
+scale = Vector2(5, 5)
+texture = SubResource("CanvasTexture_ir8iy")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2D" unique_id=789640723]
+self_modulate = Color(0.25444567, 0.5842801, 0, 1)
+texture = SubResource("CanvasTexture_hqns4")
