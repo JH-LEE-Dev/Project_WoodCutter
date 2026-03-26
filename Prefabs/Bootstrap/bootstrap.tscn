@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dacbnmetk3scj"]
+
+[ext_resource type="Script" uid="uid://d4dka4uws1phc" path="res://Scripts/Application Layer/Bootstrap/Bootstrap.cs" id="1_gtnck"]
+[ext_resource type="PackedScene" uid="uid://bx30wpy7xbgfu" path="res://Prefabs/Installer/GameInstaller/game_installer.tscn" id="2_kdigm"]
+[ext_resource type="PackedScene" uid="uid://cb687k52xrv55" path="res://Prefabs/Installer/MainMenuInstaller/main_menu_installer.tscn" id="3_nf2ej"]
+[ext_resource type="Script" uid="uid://bqr7w4bowirch" path="res://Scripts/Application Layer/SceneSystem/SceneManager.cs" id="4_kdigm"]
+[ext_resource type="Script" uid="uid://bwjww6vbqptja" path="res://Scripts/Application Layer/InputSystem/InputManager.cs" id="5_t624x"]
+
+[node name="Bootstrap" type="Node" unique_id=314503864]
+script = ExtResource("1_gtnck")
+gameInstallerPrefab = ExtResource("2_kdigm")
+mainMenuInstallerPrefab = ExtResource("3_nf2ej")
+
+[node name="SceneManager" type="Node" parent="." unique_id=1574334067]
+script = ExtResource("4_kdigm")
+
+[node name="InputManager" type="Node" parent="." unique_id=1859338927]
+script = ExtResource("5_t624x")

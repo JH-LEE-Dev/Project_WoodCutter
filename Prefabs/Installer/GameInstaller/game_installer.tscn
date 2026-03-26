@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bx30wpy7xbgfu"]
+
+[ext_resource type="Script" uid="uid://pofswvhm5hc2" path="res://Scripts/Application Layer/Installer/GameInstaller/GameInstaller.cs" id="1_apy4m"]
+[ext_resource type="Script" uid="uid://c8l01uoc6hmp7" path="res://Scripts/Application Layer/UnitSpawner/UnitSpawner.cs" id="2_wesdf"]
+[ext_resource type="PackedScene" uid="uid://ifu8b7kqgo83" path="res://Prefabs/Character/Character.tscn" id="3_pabrq"]
+
+[node name="GameInstaller" type="Node" unique_id=1320209928]
+script = ExtResource("1_apy4m")
+
+[node name="UnitSpawner" type="Node" parent="." unique_id=521686127 node_paths=PackedStringArray("characterSpawnPoint")]
+script = ExtResource("2_wesdf")
+characterSpawnPoint = NodePath("CharacterSpawnPoint")
+characterPrefab = ExtResource("3_pabrq")
+
+[node name="CharacterSpawnPoint" type="Node2D" parent="UnitSpawner" unique_id=994130182]
+position = Vector2(331, 139)
