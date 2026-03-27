@@ -7,6 +7,8 @@ public partial class UnitSpawner : Node
 
     // 외부 의존성
     private InputManager inputManager;
+    private IBootstrapProvider bootstrapProvider;
+
 
     // 내부 의존성
     [Export] private Node2D characterSpawnPoint;
@@ -14,9 +16,10 @@ public partial class UnitSpawner : Node
 
     private Character character;
 
-    public void Initialize(InputManager _inputManager)
+    public void Initialize(InputManager _inputManager,IBootstrapProvider _bootstrapProvider)
     {
-        this.inputManager = _inputManager;
+        inputManager = _inputManager;
+        bootstrapProvider = _bootstrapProvider;
     }
 
     public void SpawnCharacter()
@@ -30,7 +33,7 @@ public partial class UnitSpawner : Node
         character = characterPrefab.Instantiate<Character>();
         
         // 현재 노드의 자식으로 추가
-        AddChild(character);
+        bootstrapProvider.GetTargetSceneNode().AddChild(character);
 
         // 위치 설정 및 의존성 주입
         character.GlobalPosition = characterSpawnPoint.GlobalPosition;
