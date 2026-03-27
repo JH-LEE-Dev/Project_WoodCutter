@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cb687k52xrv55"]
+
+[ext_resource type="Script" uid="uid://dcgsp4iaxhoku" path="res://Scripts/Application Layer/Installer/MainMenuInstaller/MainMenuInstaller.cs" id="1_3idqk"]
+[ext_resource type="Script" uid="uid://qs32k57o5r51" path="res://Scripts/Application Layer/UISystem/MainMenuUI/MainMenuUIInstaller.cs" id="2_kk1nd"]
+[ext_resource type="Script" uid="uid://b0rb6kp6svm37" path="res://Scripts/Application Layer/UISystem/UIManager/MainMenu/MainMenuUIManager.cs" id="3_18g7i"]
+[ext_resource type="PackedScene" uid="uid://cun7g1qb178ud" path="res://Prefabs/UI/MainMenu/ui_view_main_menu.tscn" id="4_5uxvs"]
+
+[node name="MainMenuInstaller" type="Node" unique_id=139782553]
+script = ExtResource("1_3idqk")
+
+[node name="MainMenuUIInstaller" type="Node" parent="." unique_id=718898987]
+script = ExtResource("2_kk1nd")
+
+[node name="UIManager" type="Node" parent="MainMenuUIInstaller" unique_id=1230060279]
+script = ExtResource("3_18g7i")
+viewPrefabs = Array[PackedScene]([ExtResource("4_5uxvs")])

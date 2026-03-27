@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://c3goo8b2jqbh4"]
+
+[ext_resource type="Texture2D" uid="uid://com857endbhej" path="res://Graphics/Tiles/Grass/Tile_Grass.png" id="1_rdvir"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0hol4"]
+texture = ExtResource("1_rdvir")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
+
+[sub_resource type="TileSet" id="TileSet_y32ns"]
+tile_shape = 1
+tile_layout = 4
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/6 = SubResource("TileSetAtlasSource_0hol4")
+
+[node name="HubScene" type="Node2D" unique_id=372622923]
+y_sort_enabled = true
+texture_filter = 1
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1066531606]
+z_index = -1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(320, 180)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 6, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_y32ns")

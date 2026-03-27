@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cun7g1qb178ud"]
+
+[ext_resource type="Script" uid="uid://btk2456mbc2yu" path="res://Scripts/Presentation Layer/UISystem/UIView/UIView_MainMenu.cs" id="1_r4r8k"]
+[ext_resource type="Texture2D" uid="uid://cj3yalil7pmqq" path="res://Graphics/Background/MainMenu.png" id="2_1advx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_47sjk"]
+texture = ExtResource("2_1advx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4r8k"]
+bg_color = Color(7.123351e-06, 0.68123984, 0.72315747, 1)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="UIView_MainMenu" type="Control" unique_id=240465092 node_paths=PackedStringArray("canvasLayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_r4r8k")
+canvasLayer = NodePath("CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795701913]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=77450243]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_47sjk")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1800256871]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -25.0
+offset_right = 110.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_r4r8k")
+text = "시작하자 "
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="OnGameStartButton"]
