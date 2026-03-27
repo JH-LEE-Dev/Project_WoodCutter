@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Godot;
 
 public partial class Bootstrap : Node, IBootstrapProvider
@@ -16,20 +17,26 @@ public partial class Bootstrap : Node, IBootstrapProvider
     private SceneType currentSceneType = SceneType.MainMenu; // 기본값 예시
     private SceneType prevSceneType = SceneType.MainMenu;
 
-    public void GoToMainMenuScene()
+    public async Task GoToMainMenuScene()
     {
         if (sceneManager != null)
-            sceneManager.ChangeScene(SceneType.MainMenu);
+            await sceneManager.ChangeScene(SceneType.MainMenu);
         if (mainMenuInstaller != null)
             mainMenuInstaller.StartMainMenuScene();
     }
 
-    public void GoToHubScene()
+    public async Task GoToHubScene()
     {
         if (sceneManager != null)
-            sceneManager.ChangeScene(SceneType.Hub);
+            await sceneManager.ChangeScene(SceneType.Main);
+
+        if (sceneManager != null)
+            sceneManager.SetCurrentScene();
         if (gameInstaller != null)
+        {
+            gameInstaller.Initialize(this, inputManager);
             gameInstaller.StartGameplayScene();
+        }
     }
 
     public void GoToOtherScene(string _sceneName)
@@ -91,8 +98,12 @@ public partial class Bootstrap : Node, IBootstrapProvider
             gameInstaller = gameInstallerPrefab.Instantiate<GameInstaller>();
 
             AddChild(gameInstaller);
-
-            gameInstaller.Initialize(this, inputManager);
         }
     }
+
+    public Node GetTargetSceneNode()
+    {
+        return sceneManager.GetTargetScene();
+    }
+
 }

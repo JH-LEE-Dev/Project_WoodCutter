@@ -1,9 +1,11 @@
-
+using Godot;
+using System.Threading.Tasks;
 
 public interface IBootstrapProvider
 {
-    void GoToMainMenuScene();
+    Task GoToMainMenuScene();
 
-    void GoToHubScene();
+    Task GoToHubScene();
     void GoToOtherScene(string _sceneName);
+    Node GetTargetSceneNode();
 }

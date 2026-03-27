@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cn643klvjsu6f"]
+
+[ext_resource type="PackedScene" uid="uid://c3goo8b2jqbh4" path="res://Scenes/HubScene.tscn" id="1_hpc76"]
+[ext_resource type="Script" uid="uid://bg3v6ylafmlmq" path="res://Scripts/Application Layer/SceneSystem/Scenes/MainScene.cs" id="1_tr2i4"]
+[ext_resource type="Shader" uid="uid://fk7l7mxlk112" path="res://Scripts/Shader/Subpixel.gdshader" id="2_nhkr4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rqgy"]
+shader = ExtResource("2_nhkr4")
+shader_parameter/cam_offset = Vector2(0, 0)
+
+[node name="Main" type="Node2D" unique_id=2076656609 node_paths=PackedStringArray("targetScene")]
+texture_filter = 1
+script = ExtResource("1_tr2i4")
+targetScene = NodePath("SubViewportContainer/SubViewport/HubScene")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1855503151]
+texture_filter = 1
+material = SubResource("ShaderMaterial_7rqgy")
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 638.0
+offset_bottom = 638.0
+scale = Vector2(3, 3)
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=557067595]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(642, 362)
+render_target_update_mode = 4
+
+[node name="HubScene" parent="SubViewportContainer/SubViewport" unique_id=372622923 instance=ExtResource("1_hpc76")]

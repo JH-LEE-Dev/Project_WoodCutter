@@ -49,15 +49,20 @@ public partial class MainMenuUIInstaller : Node
 
         if (mainMenuUIView != null)
         {
-            mainMenuUIView.PlayButtonClickedEvent -= bootStrapProvider.GoToHubScene;
-            mainMenuUIView.PlayButtonClickedEvent += bootStrapProvider.GoToHubScene;
+            mainMenuUIView.PlayButtonClickedEvent -= OnPlayButtonClicked;
+            mainMenuUIView.PlayButtonClickedEvent += OnPlayButtonClicked;
         }
     }
 
     public void ReleaseEvent()
     {
-        UIView_MainMenu mainMenuUIView = uiManager.Open<UIView_MainMenu>();
+        UIView_MainMenu mainMenuUIView = uiManager.GetView<UIView_MainMenu>();
 
-        mainMenuUIView.PlayButtonClickedEvent -= bootStrapProvider.GoToHubScene;
+        mainMenuUIView.PlayButtonClickedEvent -= OnPlayButtonClicked;
+    }
+
+    private void OnPlayButtonClicked()
+    {
+        bootStrapProvider.GoToHubScene();
     }
 }

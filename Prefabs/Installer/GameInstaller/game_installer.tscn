@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bx30wpy7xbgfu"]
 
 [ext_resource type="Script" uid="uid://pofswvhm5hc2" path="res://Scripts/Application Layer/Installer/GameInstaller/GameInstaller.cs" id="1_apy4m"]
-[ext_resource type="Script" uid="uid://c8l01uoc6hmp7" path="res://Scripts/Application Layer/UnitSpawner/UnitSpawner.cs" id="2_wesdf"]
+[ext_resource type="Script" uid="uid://c8l01uoc6hmp7" path="res://Scripts/Application Layer/UnitSystem/UnitSpawner/UnitSpawner.cs" id="2_wesdf"]
 [ext_resource type="PackedScene" uid="uid://ifu8b7kqgo83" path="res://Prefabs/Character/Character.tscn" id="3_pabrq"]
+[ext_resource type="Script" uid="uid://fxjt700c7bus" path="res://Scripts/Application Layer/CameraSystem/CameraManager.cs" id="4_hqj4m"]
+[ext_resource type="PackedScene" uid="uid://bawn36ljwyfix" path="res://Prefabs/Camera/camera_2d.tscn" id="5_1hab7"]
 
 [node name="GameInstaller" type="Node" unique_id=1320209928]
 script = ExtResource("1_apy4m")
@@ -14,3 +16,7 @@ characterPrefab = ExtResource("3_pabrq")
 
 [node name="CharacterSpawnPoint" type="Node2D" parent="UnitSpawner" unique_id=994130182]
 position = Vector2(331, 139)
+
+[node name="CameraManager" type="Node" parent="." unique_id=1967690859]
+script = ExtResource("4_hqj4m")
+cameraPrefab = ExtResource("5_1hab7")

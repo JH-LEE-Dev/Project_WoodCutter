@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bawn36ljwyfix"]
+
+[ext_resource type="Script" uid="uid://dbwifns53rnba" path="res://Scripts/Application Layer/CameraSystem/SubpixelCamera.cs" id="1_ciai6"]
+
+[node name="Camera2D" type="Camera2D" unique_id=1300694360]
+process_priority = 1
+process_physics_priority = 1
+script = ExtResource("1_ciai6")
