@@ -9,6 +9,8 @@ public partial class GameInstaller : Node
     private UnitSpawner unitSpawner;
     private CameraManager cameraManager;
     private UnitSystem unitSystem;
+    private EnvironmentSystem environmentSystem;
+
 
     public void Initialize(IBootstrapProvider _bootstrapProvider, InputManager _inputManager)
     {
@@ -23,6 +25,8 @@ public partial class GameInstaller : Node
         cameraManager = NodeUtils.FindChildByType<CameraManager>(this);
         cameraManager.Initialize(signalHub,bootstrapProvider);
 
+        environmentSystem = NodeUtils.FindChildByType<EnvironmentSystem>(this);
+        environmentSystem.Initialize(signalHub,bootstrapProvider);
 
         unitSystem = new UnitSystem();
         unitSystem.Initialize(signalHub,unitSpawner);
@@ -36,5 +40,6 @@ public partial class GameInstaller : Node
     public void StartGameplayScene()
     {
         unitSpawner.SpawnCharacter();
+        environmentSystem.GenerateMap();
     }
 }

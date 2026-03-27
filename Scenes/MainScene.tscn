@@ -19,7 +19,7 @@ material = SubResource("ShaderMaterial_7rqgy")
 offset_left = -4.0
 offset_top = -4.0
 offset_right = 638.0
-offset_bottom = 638.0
+offset_bottom = 358.0
 scale = Vector2(3, 3)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=557067595]

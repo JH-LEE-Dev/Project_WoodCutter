@@ -9,6 +9,8 @@ public class RunState : CharacterState
     private float directionUpdateTimer;
     private const float graceDuration = 0.05f;
 
+    private Vector2 lastDir = Vector2.Zero;
+
     public override void Enter()
     {
         bActivated = true;
@@ -101,17 +103,26 @@ public class RunState : CharacterState
 
     private void ApplyMovement()
     {
-        Vector2 isoDir = GetIsometricVector(moveInput);
+        // 1. 현재 입력의 순수한 방향을 먼저 구합니다.
+        Vector2 rawDir = moveInput.Normalized();
 
-        if (isoDir.LengthSquared() > 0.001f)
+        // 🚨 포럼 작성자의 핵심 꼼수 적용: 방향이 바뀌었거나 새로 출발할 때
+        if (rawDir != lastDir)
         {
-            // 1. 방향부터 정규화 (순수한 방향 추출)
-            Vector2 rawDir = moveInput.Normalized();
+            // 픽셀 격자와 어긋난 소수점 찌꺼기를 날려버리고 정수에 강제로 스냅!
+            character.GlobalPosition = character.GlobalPosition.Round();
 
-            // 2. 그 후에 이소메트릭 비율 적용
-            isoDir = GetIsometricVector(rawDir);
+            // 방향 상태 갱신
+            lastDir = rawDir;
+        }
 
-            // 3. 속도 곱하기
+        // 2. 입력이 있는지 확인 (기존 로직 유지)
+        if (moveInput.LengthSquared() > 0.001f) // isoDir 대신 moveInput으로 체크하는 것이 더 정확합니다.
+        {
+            // 3. 이소메트릭 비율 적용
+            Vector2 isoDir = GetIsometricVector(rawDir);
+
+            // 4. 속도 곱하기
             character.Velocity = isoDir * character.speed;
         }
         else
@@ -120,6 +131,7 @@ public class RunState : CharacterState
             character.Velocity = Vector2.Zero;
         }
 
+        // 5. 물리 엔진 이동 실행
         character.MoveAndSlide();
     }
 

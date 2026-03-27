@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cualqmwfrlp3d"]
+
+[ext_resource type="Script" uid="uid://qoc781tkit44" path="res://Scripts/Application Layer/EnvironmentSystem/TilemapGenerator/TileMapGenerator.cs" id="1_c1qpc"]
+[ext_resource type="Script" uid="uid://l6k5r3kctm6g" path="res://Scripts/Application Layer/EnvironmentSystem/EnvironmentSystem.cs" id="1_y3eqd"]
+[ext_resource type="PackedScene" uid="uid://dpjvxm1loimnm" path="res://Prefabs/Tilemap/tile_map_layer.tscn" id="2_y3eqd"]
+
+[node name="EnvironmentSystem" type="Node" unique_id=114766121]
+script = ExtResource("1_y3eqd")
+
+[node name="TileMapGenerator" type="Node" parent="." unique_id=59537446 node_paths=PackedStringArray("groundLayer", "collisionLayer")]
+script = ExtResource("1_c1qpc")
+groundLayer = NodePath("TilemapLayer")
+collisionLayer = NodePath("CollisionLayer")
+
+[node name="TilemapLayer" parent="TileMapGenerator" unique_id=1476825081 instance=ExtResource("2_y3eqd")]
+
+[node name="CollisionLayer" parent="TileMapGenerator" unique_id=983583796 instance=ExtResource("2_y3eqd")]

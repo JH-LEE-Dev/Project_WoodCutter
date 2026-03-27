@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dpjvxm1loimnm"]
+
+[ext_resource type="Texture2D" uid="uid://com857endbhej" path="res://Graphics/Tiles/Grass/Tile_Grass.png" id="1_3s3yl"]
+[ext_resource type="Texture2D" uid="uid://22uewagodiw3" path="res://Graphics/Tiles/Water/Tile_Water_00.png" id="1_rkg0k"]
+[ext_resource type="Texture2D" uid="uid://butxfgiegmxha" path="res://Graphics/Tiles/Sand/Tile_Sand.png" id="2_srqbd"]
+[ext_resource type="Texture2D" uid="uid://dc0lpmbfkg23x" path="res://Graphics/Tiles/Rock/Tile_Rock.png" id="4_tj6mx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkg0k"]
+texture = ExtResource("1_rkg0k")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_srqbd"]
+texture = ExtResource("2_srqbd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tj6mx"]
+texture = ExtResource("1_3s3yl")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kxkrq"]
+texture = ExtResource("4_tj6mx")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ap0qh"]
+tile_shape = 1
+tile_layout = 4
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_rkg0k")
+sources/1 = SubResource("TileSetAtlasSource_srqbd")
+sources/2 = SubResource("TileSetAtlasSource_tj6mx")
+sources/3 = SubResource("TileSetAtlasSource_kxkrq")
+
+[node name="TileMapLayer" type="TileMapLayer" unique_id=1476825081]
+z_index = -1
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_ap0qh")
